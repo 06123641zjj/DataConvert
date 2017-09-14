@@ -53,7 +53,7 @@ Begin VB.Form frmMain
       Width           =   1260
    End
    Begin VB.Label lbl 
-      Caption         =   "Select the path to database, then click Convert and select the xls file"
+      Caption         =   "Double click the folder contain the database to select the path to database, then click Convert and select the xls file"
       Height          =   825
       Left            =   7995
       TabIndex        =   5
@@ -257,14 +257,14 @@ Private Sub getCurrRow(rsData As ADODB.recordSet, row As Collection)
     notes = notes & vbCrLf & "FIRST USE: " & getData(rsData, "FIRST USE MONTH") & "/" & getData(rsData, "FIRST USE DAY") & "/" & getData(rsData, "FIRST USE YEAR")
 
     notes = notes & vbCrLf & "INSPECTION MONTH: " & getData(rsData, "INSPECTION MONTH")
-    notes = notes & vbCrLf & "NEXT SERVICE DATE(MM/YYYY): " & getData(rsData, "NEXT SERVICE DATE MONTH") & "/" & getData(rsData, "NEXT SERVICE DATE YEAR")
+    notes = notes & vbCrLf & "NEXT SERVICE DATE(MM/YY): " & getData(rsData, "NEXT SERVICE DATE MONTH") & "/" & getData(rsData, "NEXT SERVICE DATE YEAR")
     
 
     notes = notes & vbCrLf & "PREVIOUS SERVICE ODOMETER: " & getData(rsData, "PREVIOUS SERVICE ODOMETER")
     notes = notes & vbCrLf & "SERVICE CONTRACT: " & getData(rsData, "SERVICE CONTRACT")
     notes = notes & vbCrLf & "SERVICE CONTRACT TERM: " & getData(rsData, "SERVICE CONTRACT TERM")
     
-    notes = notes & vbCrLf & "SERVICE CONTRACT EXPIRES(MM/YYYY): " & getData(rsData, "SERVICE CONTRACT EXPIRES MONTH") & "/" & getData(rsData, "SERVICE CONTRACT EXPIRES YEAR")
+    notes = notes & vbCrLf & "SERVICE CONTRACT EXPIRES(MM/YY): " & getData(rsData, "SERVICE CONTRACT EXPIRES MONTH") & "/" & getData(rsData, "SERVICE CONTRACT EXPIRES YEAR")
 
     notes = notes & vbCrLf & "SERVICE CONTRACT EXPIRES ODOMETER: " & getData(rsData, "SERVICE CONTRACT EXPIRES ODOMETER")
     notes = notes & vbCrLf & "NEW/USED/OTHER: " & getData(rsData, "NEW/USED/OTHER")
@@ -376,8 +376,8 @@ End Sub
 
 ' if we can not use the number in excel file directly, we will need to implement this method
 Private Function getInvoiceNum(noFromExcel As Integer) As String
-    'getInvoiceNum = "Inp" & noFromExcel
     getInvoiceNum = noFromExcel
+    'getInvoiceNum = noFromExcel
 End Function
 
 Private Function getAccountNum(noFromExcel As Integer) As Integer
